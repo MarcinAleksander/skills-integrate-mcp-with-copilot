@@ -8,8 +8,30 @@
   </head>
   <body>
     <header>
-      <h1>Mergington High School</h1>
-      <h2>Extracurricular Activities</h2>
+      <div class="header-row">
+        <div>
+          <h1>Mergington High School</h1>
+          <h2>Extracurricular Activities</h2>
+        </div>
+        <button
+          id="account-button"
+          class="account-button"
+          type="button"
+          aria-label="Teacher sign in"
+          aria-controls="account-menu"
+          aria-expanded="false"
+          title="Teacher sign in"
+        >
+          <span aria-hidden="true">👤</span>
+        </button>
+        <div id="account-menu" class="account-menu hidden" role="menu">
+          <button id="login-button" type="button" role="menuitem">Log in</button>
+          <div id="teacher-account" class="hidden">
+            <p id="teacher-name"></p>
+            <button id="logout-button" type="button" role="menuitem">Log out</button>
+          </div>
+        </div>
+      </div>
     </header>
 
     <main>
@@ -21,7 +43,7 @@
         </div>
       </section>
 
-      <section id="signup-container">
+      <section id="signup-container" hidden>
         <h3>Sign Up for an Activity</h3>
         <form id="signup-form">
           <div class="form-group">
@@ -40,6 +62,38 @@
         <div id="message" class="hidden"></div>
       </section>
     </main>
+
+    <dialog id="account-dialog" aria-labelledby="account-dialog-title">
+      <div class="dialog-content">
+        <button
+          id="close-dialog"
+          class="close-dialog"
+          type="button"
+          aria-label="Close"
+        >
+          &times;
+        </button>
+        <h3 id="account-dialog-title">Teacher sign in</h3>
+        <form id="login-form">
+          <div class="form-group">
+            <label for="username">Username:</label>
+            <input id="username" name="username" autocomplete="username" required />
+          </div>
+          <div class="form-group">
+            <label for="password">Password:</label>
+            <input
+              id="password"
+              name="password"
+              type="password"
+              autocomplete="current-password"
+              required
+            />
+          </div>
+          <p id="login-error" class="error hidden" role="alert"></p>
+          <button type="submit">Log in</button>
+        </form>
+      </div>
+    </dialog>
 
     <footer>
       <p>&copy; 2026 Mergington High School</p>
